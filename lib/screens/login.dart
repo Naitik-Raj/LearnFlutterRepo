@@ -1,8 +1,14 @@
 import 'package:first_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class Login extends StatefulWidget {
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  String name = "";
+  bool changedButton = false;
 
   @override
   Widget build(BuildContext context) {
@@ -15,19 +21,15 @@ class Login extends StatelessWidget {
               "assets/images/login_image.png",
               fit: BoxFit.cover,
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Text(
-              "Welcome",
-              style: TextStyle(
+            const SizedBox(height: 20),
+            Text(
+              "Welcome $name",
+              style: const TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(
                 vertical: 16,
@@ -40,6 +42,11 @@ class Login extends StatelessWidget {
                       hintText: "Enter username",
                       labelText: "Username",
                     ),
+                    onChanged: (value) {
+                      setState(() {
+                        name = value;
+                      });
+                    },
                   ),
                   TextFormField(
                     obscureText: true,
@@ -48,17 +55,48 @@ class Login extends StatelessWidget {
                       labelText: "Password",
                     ),
                   ),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      // ignore: avoid_print
+                  const SizedBox(height: 40),
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     Navigator.pushNamed(context, MyRoutes.homeRoute);
+                  //   },
+                  //   style:
+                  //       TextButton.styleFrom(minimumSize: const Size(120, 40)),
+                  //   child: const Text("Login"),
+                  // ),
+                  InkWell(
+                    onTap: () async{
+                      setState(() {
+                        changedButton = true;
+                      });
+                      await Future.delayed(const Duration(seconds: 1));
+                      // ignore: use_build_context_synchronously
                       Navigator.pushNamed(context, MyRoutes.homeRoute);
                     },
-                    style: TextButton.styleFrom(minimumSize: const Size(120, 40)),
-                    
-                    child: const Text("Login"),
+                    child: AnimatedContainer(
+                      width: changedButton ? 80 : 140,
+                      height: 50,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurple,
+                        // shape: changedButton ? BoxShape.circle : BoxShape.rectangle,
+                        borderRadius:
+                            BorderRadius.circular(changedButton ? 50 : 8),
+                      ),
+                      duration: const Duration(seconds: 1),
+                      child: changedButton
+                          ? const Icon(
+                              Icons.done,
+                              color: Colors.white,
+                            )
+                          : const Text(
+                              "Login",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                    ),
                   ),
                 ],
               ),
