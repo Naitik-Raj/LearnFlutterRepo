@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
+  const Home({super.key});
 
-  final num day = 5;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Catalog App"),
+        title: const Text("Catalag App"),
       ),
       body: Center(
         child: Container(
-          child: Text("Welcom to my $day days Flutter Bootcamp"),
+          child: const Text("Welcome to 5 days of flutter"),
         ),
       ),
-      drawer: Drawer(),
+      drawer: const Drawer(),
     );
   }
 }
