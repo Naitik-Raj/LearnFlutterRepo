@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/drawer.dart';
+
 class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
+    num days = 5;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Catalag App"),
       ),
-      body: const Center(
-        child: Text("Welcome to 5 days of flutter"),
+      body: Center(
+        child: Container(
+          child: Text("Welcome to $days days of flutter")),
       ),
-      drawer: const Drawer(),
+      drawer: const MyDrawer(),
     );
   }
 }
