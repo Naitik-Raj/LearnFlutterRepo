@@ -9,10 +9,8 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Catalag App"),
       ),
-      body: Center(
-        child: Container(
-          child: const Text("Welcome to 5 days of flutter"),
-        ),
+      body: const Center(
+        child: Text("Welcome to 5 days of flutter"),
       ),
       drawer: const Drawer(),
     );
