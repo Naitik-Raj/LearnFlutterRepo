@@ -7,7 +7,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    num days = 5;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
