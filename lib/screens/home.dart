@@ -15,7 +15,7 @@ class Home extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Container(child: Text("Welcome to $days days of flutter")),
+        child: Container(child: Text(context.runtimeType.toString())),
       ),
       drawer: const MyDrawer(),
     );

@@ -6,18 +6,6 @@ class MyTheme {
   static ThemeData lightTheme(BuildContext context) => ThemeData(
         primarySwatch: Colors.deepPurple,
         fontFamily: GoogleFonts.lato().fontFamily,
-        // appBarTheme: const AppBarTheme(
-        //   color: Colors.white,
-        //   elevation: 0.0,
-        //   iconTheme: IconThemeData(
-        //     color: Colors.black,
-        //   ),
-        //   titleTextStyle:
-        //       Theme.of(context).appBarTheme.titleTextStyle?.copyWith(
-        //             fontFamily: 'OpenSans',
-        //             fontSize: 20,
-        //           ),
-        // ),
         appBarTheme: AppBarTheme(
           color: Colors.white,
           elevation: 0.0,
