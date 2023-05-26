@@ -10,11 +10,12 @@ class Home extends StatelessWidget {
     num days = 5;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Catalag App"),
+        title: const Text(
+          "Catalog App",
+        ),
       ),
       body: Center(
-        child: Container(
-          child: Text("Welcome to $days days of flutter")),
+        child: Container(child: Text("Welcome to $days days of flutter")),
       ),
       drawer: const MyDrawer(),
     );

@@ -7,7 +7,8 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_declarations
-    final imageUrl = "https://w7.pngwing.com/pngs/306/70/png-transparent-computer-icons-management-admin-silhouette-black-and-white-neck-thumbnail.png";
+    final imageUrl =
+        "https://chasinganime.com/wp-content/uploads/2020/06/tanjiro_ep20_s5-1-1200x720.png";
 
     return Drawer(
       child: Container(
@@ -19,8 +20,8 @@ class MyDrawer extends StatelessWidget {
               padding: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
                 margin: EdgeInsets.zero,
-                accountName: const Text("Naitik Raj"),
-                accountEmail: const Text("naitikraj66@gmail.com"),
+                accountName: const Text("Naitik Raj",style: TextStyle(color: Colors.white),),
+                accountEmail: const Text("naitikraj66@gmail.com",style: TextStyle(color: Colors.white),),
                 currentAccountPicture: CircleAvatar(
                   backgroundImage: NetworkImage(imageUrl),
                 ),
