@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
+  auto_size_text_pk:
+    dependency: transitive
+    description:
+      name: auto_size_text_pk
+      sha256: ced55de5336fa7f438c1f5a9aa234e25d7a120c1d40d376a7cdc2af28cdb6995
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -99,8 +107,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_web_plugins:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   google_fonts:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: google_fonts
       sha256: "2776c66b3e97c6cdd58d1bd3281548b074b64f1fd5c8f82391f7456e38849567"
@@ -123,6 +136,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "910f85bce16fb5c6f614e117efa303e85a1731bb0081edf3604a2ae6e9a3cc91"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.17.0"
   js:
     dependency: transitive
     description:
@@ -156,7 +177,7 @@ packages:
     source: hosted
     version: "0.2.0"
   meta:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: meta
       sha256: "3c74dbf8763d36539f114c799d8a2d87343b5067e9d796ca22b5eb8437090ee3"
@@ -312,6 +333,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  velocity_x:
+    dependency: "direct main"
+    description:
+      name: velocity_x
+      sha256: "3b60374a8c56fea3f53fba61440ebb9c753a39952a15d2e65bb2910873ebcac9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
+  vxstate:
+    dependency: transitive
+    description:
+      name: vxstate
+      sha256: ed5a880018191c5cfed8528bd77f2a942b04847168ca12636a306c323d311086
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.0"
   win32:
     dependency: transitive
     description:
