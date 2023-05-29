@@ -55,7 +55,7 @@ class CatalogItem extends StatelessWidget {
               children: [
                 catalog.name.text.lg.color(MyTheme.darkBluishColor).bold.make(),
                 catalog.desc.text.textStyle(context.captionStyle).make(),
-                10.heightBox,
+                6.heightBox,
                 ButtonBar(
                   alignment: MainAxisAlignment.spaceBetween,
                   buttonPadding: EdgeInsets.zero,
@@ -68,10 +68,10 @@ class CatalogItem extends StatelessWidget {
                             MaterialStateProperty.all(MyTheme.darkBluishColor),
                         shape: MaterialStateProperty.all(const StadiumBorder()),
                       ),
-                      child: "Buy".text.make(),
+                      child: "Add to cart".text.make(),
                     ),
                   ],
-                ).pOnly(right: 8.0),
+                ).pOnly(right: 6.0),
               ],
             ),
           ),

@@ -11,7 +11,9 @@ class HomeDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       backgroundColor: MyTheme.creamColor,
       bottomNavigationBar: Container(
         color: Colors.white,
@@ -27,46 +29,47 @@ class HomeDetailsPage extends StatelessWidget {
                     MaterialStateProperty.all(MyTheme.darkBluishColor),
                 shape: MaterialStateProperty.all(const StadiumBorder()),
               ),
-              child: "Buy".text.make(),
-            ).wh(100, 50),
+
+              child: "Add to cart".text.make(),
+            ).wh(120, 50),
           ],
-        ).p32(),
+        ).p16(),
       ),
       body: SafeArea(
         bottom: false,
-        child: Column(
-          children: [
-            Hero(
-              tag: Key(
-                catalog.id.toString(),
-              ),
-              child: Image.network(catalog.image),
-            ).h40(context),
-            Expanded(
-              child: VxArc(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Hero(
+                tag: Key(catalog.id.toString()),
+                child: Image.network(catalog.image),
+              ).h40(context),
+              VxArc(
                 height: 30,
                 arcType: VxArcType.convey,
                 edge: VxEdge.top,
                 child: Container(
                   color: Colors.white,
-                  width: context.screenWidth,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      catalog.name.text.xl4
+                      catalog.name.text.xl3
                           .color(MyTheme.darkBluishColor)
                           .bold
                           .make(),
-                      catalog.desc.text
-                          .textStyle(context.captionStyle)
-                          .xl
-                          .make(),
+                      catalog.desc.text.caption(context).lg.make(),
                       10.heightBox,
+                      "With these changes, the HomeDetailsPage widget should render a scaffold with a safe area. Inside the safe area, there's a container with the specified background color. Currently, it only displays the image from the catalog item."
+                          .text.caption(context)
+                          .make()
+                          .p16(),
                     ],
-                  ).py64(),
+                  ).p64(),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
