@@ -1,4 +1,5 @@
 import 'package:first_app/models/catalog.dart';
+import 'package:first_app/widgets/home_widgets/add_to_cart.dart';
 import 'package:first_app/widgets/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -22,15 +23,8 @@ class HomeDetailsPage extends StatelessWidget {
           buttonPadding: EdgeInsets.zero,
           children: [
             "\$${catalog.price}".text.bold.xl4.red700.make(),
-            ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all(MyTheme.darkBluishColor),
-                shape: MaterialStateProperty.all(const StadiumBorder()),
-              ),
-
-              child: "Add to cart".text.make(),
+            AddToCart(
+              catalog: catalog,
             ).wh(120, 50),
           ],
         ).p16(),
@@ -61,7 +55,8 @@ class HomeDetailsPage extends StatelessWidget {
                       catalog.desc.text.caption(context).lg.make(),
                       10.heightBox,
                       "With these changes, the HomeDetailsPage widget should render a scaffold with a safe area. Inside the safe area, there's a container with the specified background color. Currently, it only displays the image from the catalog item."
-                          .text.caption(context)
+                          .text
+                          .caption(context)
                           .make()
                           .p16(),
                     ],

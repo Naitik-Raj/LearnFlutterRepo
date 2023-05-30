@@ -1,19 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-class CatalogModel {
-  static List<Item> items = [
-    Item(
-      id: 1,
-      name: "iPhone 12 Pro",
-      desc: "Apple iPhone 12th generation",
-      price: 999,
-      color: "#33505a",
-      image:
-          "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-pro-family-hero?wid=940&hei=1112&fmt=png-alpha&.v=1604021660000",
-    ),
-  ];
-  
+
+class CatalogModel {  
+  static List<Item> items = [];
+
   //get item by id
   // ignore: null_closures
   Item getById(int id) => items.firstWhere((element) => element.id == id, orElse: null);
