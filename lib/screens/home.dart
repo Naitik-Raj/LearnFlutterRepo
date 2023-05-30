@@ -1,13 +1,13 @@
-import 'package:first_app/models/catalog.dart';
-import 'package:first_app/utils/routes.dart';
-import 'package:first_app/widgets/home_widgets/catalog_header.dart';
-import 'package:first_app/widgets/home_widgets/catalog_list.dart';
 import 'package:first_app/widgets/themes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:first_app/models/catalog.dart';
+import 'package:first_app/utils/routes.dart';
+import 'package:first_app/widgets/home_widgets/catalog_header.dart';
+import 'package:first_app/widgets/home_widgets/catalog_list.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: MyTheme.darkCreamColor,
       floatingActionButton: FloatingActionButton(
         backgroundColor: MyTheme.darkBluishColor,
         onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
       ),
       body: SafeArea(
         child: Container(
-          padding: Vx.m32,
+          padding: Vx.m24,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
