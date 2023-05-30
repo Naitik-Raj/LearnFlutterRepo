@@ -1,3 +1,5 @@
+import 'package:first_app/core/store.dart';
+import 'package:first_app/models/cart_model.dart';
 import 'package:first_app/models/catalog.dart';
 import 'package:first_app/utils/routes.dart';
 import 'package:first_app/widgets/home_widgets/catalog_header.dart';
@@ -8,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:http/http.dart' as http;
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -17,6 +20,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  // final url = "https://api.jsonbin.io/b/613f0d7c9548541c29b7f2d7";
+
   @override
   void initState() {
     super.initState();
@@ -27,6 +32,9 @@ class _HomeState extends State<Home> {
     await Future.delayed(const Duration(seconds: 2));
     final catalogJson =
         await rootBundle.loadString("assets/files/catalog.json");
+
+    // final response = await http.get(Uri.parse(url));
+    // final catalogJson = response.body;
     final decodedData = jsonDecode(catalogJson);
     var productsData = decodedData["products"];
     CatalogModel.items = List.from(productsData)
@@ -39,13 +47,25 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    final cart = (VxState.store as MyStore).cart;
     return Scaffold(
       backgroundColor: MyTheme.creamColor,
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: MyTheme.darkBluishColor,
-        onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
-        child: const Icon(CupertinoIcons.cart),
-      ),
+      floatingActionButton: VxBuilder(
+          mutations: const {AddMutation, RemoveMutation},
+          builder: (ctx, _, status) => FloatingActionButton(
+                backgroundColor: MyTheme.darkBluishColor,
+                onPressed: () =>
+                    Navigator.pushNamed(context, MyRoutes.cartRoute),
+                child: const Icon(CupertinoIcons.cart),
+              ).badge(
+                color: Vx.indigo400,
+                size: 22,
+                count: cart.items.length,
+                textStyle: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              )),
       body: SafeArea(
         child: Container(
           padding: Vx.m32,
