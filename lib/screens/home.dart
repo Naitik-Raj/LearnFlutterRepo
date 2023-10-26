@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 
 class Home extends StatefulWidget {
   const Home({super.key});
